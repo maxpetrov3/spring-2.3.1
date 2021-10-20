@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Change user data</title>
 </head>
 <body>
-<form action="#" th:action="@{/save}" th:object="${user}" method="post">
-    <p>Name: <input type="text" th:value="${user.getName}"/></p>
-    <p>Lastname: <input type="text" th:value="${user.lastName}"/></p>
-    <p>Age: <input type="text" th:value="${user.age}"/></p>
+<form action="#" th:action="@{/}" th:object="${tuser}" method="post">
+    <input type="hidden" th:field = "*{id}"/>
+    <p>Name: <input type="text" th:field = "*{name}"/></p>
+    <p>Lastname: <input type="text" th:field="*{lastName}"/></p>
+    <p>Age: <input type="text" th:field="*{age}"/></p>
     <p><input type="submit" value="Save"/> <input type="reset" value="Reset"/></p>
 </form>
 </body>

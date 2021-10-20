@@ -41,4 +41,11 @@ public class UserDao {
         entityManager.merge(user);
 
     }
+
+    @Transactional
+    public void deleteUserById(Long id) {
+        Query query = entityManager.createQuery("delete from User s where s.id = :id");
+        query.setParameter("id", id);
+        query.executeUpdate();
+    }
 }
