@@ -5,11 +5,11 @@
     <title>Change user data</title>
 </head>
 <body>
-<form action="#" th:action="@{/updateUser}" th:object="${user}" method="post">
-    <p>Name: <input type="text" th:field="*{}" /></p>
-    <p>Lastname: <input type="text" th:field="*{user.lastName}" /></p>
-    <p>Lastname: <input type="text" th:field="*{user.age}" /></p>
-    <p><input type="submit" value="Save" /> <input type="reset" value="Reset" /></p>
+<form action="#" th:action="@{/save}" th:object="${user}" method="post">
+    <p>Name: <input type="text" th:value="${user.getName}"/></p>
+    <p>Lastname: <input type="text" th:value="${user.lastName}"/></p>
+    <p>Age: <input type="text" th:value="${user.age}"/></p>
+    <p><input type="submit" value="Save"/> <input type="reset" value="Reset"/></p>
 </form>
 </body>
 </html>

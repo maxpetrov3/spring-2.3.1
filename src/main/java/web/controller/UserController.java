@@ -30,9 +30,9 @@ public class UserController {
 		return "user";
 	}
 
-	@PostMapping(name = "/updateUser")
+	@PostMapping(name = "/save")
 	public String updateUserData(@RequestParam(name = "user") User user, ModelMap model) {
-
+		userService.updateUser(user);
 		return "index";
 	}
 

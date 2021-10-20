@@ -35,4 +35,10 @@ public class UserDao {
 
         return (User) query.getSingleResult();
     }
+
+    @Transactional
+    public void updateUser(User user) {
+        entityManager.merge(user);
+
+    }
 }
