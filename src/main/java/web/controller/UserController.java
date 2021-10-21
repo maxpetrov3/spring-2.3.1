@@ -11,7 +11,7 @@ import web.service.UserService;
 public class UserController {
 
 	@Autowired
-	UserService userService;
+	private UserService userService;
 
 	@GetMapping(value = "/")
 	public String getUsers(ModelMap model) {
