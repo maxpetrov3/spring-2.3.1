@@ -24,8 +24,12 @@ public class UserService {
         userDao.saveUser(user);
     }
 
-    public User getUserById(String id) {
-       return userDao.getUserById(id);
+    public User getUserById(Long id) {
+        User user = new User();
+        if (id != 0) {
+            user = userDao.getUserById(id);
+        }
+        return user;
     }
 
     public void updateUser(User user) {

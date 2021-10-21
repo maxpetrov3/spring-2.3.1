@@ -20,8 +20,10 @@ public class UserController {
 	}
 
 	@GetMapping(value = "/user")
-	public String getUserData(@RequestParam(name = "userId") String userId, ModelMap model) {
-		model.addAttribute("tuser", userService.getUserById(userId));
+	public String getUserData(@RequestParam(name = "userId", required = false) Long userId, ModelMap model) {
+		if(userId != null) {
+			model.addAttribute("tuser", userService.getUserById(userId));
+		}
 		return "user";
 	}
 
@@ -31,8 +33,8 @@ public class UserController {
 		return "redirect:/";
 	}
 
-	@RequestMapping(value = "/delete/{id}")
-	public String deleteUser(@PathVariable Long id) {
+	@PostMapping(value = "/delete")
+	public String deleteUser(@RequestParam(name = "delId") Long id) {
 		userService.deleteUserById(id);
 		return "redirect:/";
 	}

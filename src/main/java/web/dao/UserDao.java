@@ -29,11 +29,14 @@ public class UserDao {
     }
 
     @Transactional
-    public User getUserById(String id) {
+    public User getUserById(Long id) {
         Query query = entityManager.createQuery("select s from User s where s.id = :id", User.class);
-        query.setParameter("id", Long.valueOf(id));
-
-        return (User) query.getSingleResult();
+        query.setParameter("id", id);
+        if(query.getResultList().isEmpty()) {
+            return null;
+        } else {
+            return (User) query.getSingleResult();
+        }
     }
 
     @Transactional
